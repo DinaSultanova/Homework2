@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewChanched.layer.cornerRadius = 10
+        redLabel.text = String(sliderRed.value)
+        blueLabel.text = String(sliderBlue.value)
+        greenLabel.text = String(sliderGreen.value)
         
         sliderRed.value = 0
         sliderRed.minimumValue = 0
@@ -39,15 +43,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sliderRedAction(_ sender: Any) {
-        redLabel.text = String(sliderRed.value)
+        redLabel.text = String(round(100 * sliderRed.value)/100)
         changingView ()
     }
         @IBAction func sliderGreenAction(_ sender: Any) {
-        greenLabel.text = String(sliderGreen.value)
+        greenLabel.text = String(round(100 * sliderGreen.value)/100)
         changingView ()
     }
        @IBAction func sliderBlueAction(_ sender: Any) {
-        blueLabel.text = String(sliderBlue.value)
+        blueLabel.text = String(round(100 * sliderBlue.value)/100)
         changingView ()
     }
     
