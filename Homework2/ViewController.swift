@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderBlue: UISlider!
     @IBOutlet weak var sliderGreen: UISlider!
     @IBOutlet weak var sliderRed: UISlider!
+    
     @IBOutlet weak var viewChanched: UIView!
     
     @IBOutlet weak var greenLabel: UILabel!
@@ -39,12 +40,23 @@ class ViewController: UIViewController {
 
     @IBAction func sliderRedAction(_ sender: Any) {
         redLabel.text = String(sliderRed.value)
+        changingView ()
     }
-    @IBAction func sliderGreenAction(_ sender: Any) {
+        @IBAction func sliderGreenAction(_ sender: Any) {
         greenLabel.text = String(sliderGreen.value)
+        changingView ()
     }
-    @IBAction func sliderBlueAction(_ sender: Any) {
+       @IBAction func sliderBlueAction(_ sender: Any) {
         blueLabel.text = String(sliderBlue.value)
+        changingView ()
     }
+    
+    func changingView () {
+        let sliderBlue = CGFloat(sliderBlue.value)
+        let sliderGreen = CGFloat(sliderGreen.value)
+        let sliderRed = CGFloat(sliderRed.value)
+        viewChanched.backgroundColor = UIColor(red: sliderRed, green: sliderGreen, blue: sliderBlue, alpha: 1)
+    }
+    
 }
 
